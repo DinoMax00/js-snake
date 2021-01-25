@@ -1,0 +1,11 @@
+body{
+    background-color: aqua;
+}
+
+main{
+    width: 50%;
+    height: 100%;
+    background-color: ghostwhite;
+    border: 20px solid bisque;
+    margin-left: 25%;
+}
