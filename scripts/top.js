@@ -1,64 +1,57 @@
-"use strict";
+import Snake from "./snake.js";
+import {config} from "./config.js";
 
-let canvas, ctx, foo;
+let fps = 30;
+let now;
+let then = Date.now();
+let interval = 10000/fps;
+let delta;
 
-class ball{
-    constructor(x, y) {
-        this.x  = x;
-        this.y = y;
-        this.vx = 3;
-        this.vy = 5;
-        this.radius = 30;
-        this.color = "blue";
-    }
-    draw(){
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-        ctx.closePath();
-        ctx.fillStyle = this.color;
-        ctx.fill();
+console.log("loading js");
+
+
+let canvas = document.createElement("canvas");
+canvas.width = config["canvasWidth"];
+canvas.height = config["canvasHeight"];
+$("#gameWindow").append(canvas);
+console.log("canvas is ready");
+let snake = new Snake();
+snake.draw();
+
+
+function test(){
+    window.requestAnimationFrame(test);
+    now = Date.now();
+    delta = now-then;
+    if(delta > interval){
+        then = now - delta%interval;
+        snake.move();
+        snake.draw();
     }
 }
 
-let Balls = []; //new ball(50, 70);
-
-function draw(){
-    ctx.fillStyle = 'rgba(255,255,255,0.3)';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    for(let Ball of Balls){
-        Ball.draw();
-        if(Ball.x+Ball.vx+Ball.radius > canvas.width || Ball.x+Ball.vx-Ball.radius < 0){
-            Ball.vx = Ball.vx>0?-Math.random()*10:Math.random()*10;
-        }
-        if(Ball.y+Ball.vy+Ball.radius>canvas.height || Ball.y+Ball.vy-Ball.radius < 0){
-            Ball.vy = Ball.vy>0?-Math.random()*10:Math.random()*10;
-        }
-        Ball.x = Ball.x+Ball.vx;
-        Ball.y = Ball.y+Ball.vy;
+$(document).keyup(function (e){console.log(e.keyCode);
+    switch (e.keyCode){
+        case 32 :
+            console.log("space clicked");
+            window.requestAnimationFrame(test);
+            break;
+        case 37:
+            if(e.keyCode === 38) console.log("up left");
+            console.log("left clicked");
+            snake.change("left");
+            break;
+        case 38:
+            console.log("up clicked");
+            snake.change("up");
+            break;
+        case 39:
+            console.log("right clicked");
+            snake.change("right");
+            break;
+        case 40:
+            console.log("down clicked");
+            snake.change("down");
+            break;
     }
-    foo = window.requestAnimationFrame(draw);
-}
-
-
-$(()=>{
-    canvas = document.createElement("canvas");
-    canvas.width = 480;
-    canvas.height = 480;
-    $("#gameWindow").append(canvas);
-    ctx = canvas.getContext("2d");
-    for(let i=0; i<5; i++){
-        Balls[i] = new ball(Math.random()*1000%canvas.width, Math.random()*1000%canvas.width);
-        Balls[i].draw();
-    }
-    canvas.addEventListener('mouseover', function(e){
-        foo = window.requestAnimationFrame(draw);
-    });
-    canvas.addEventListener('mouseout', function(e){
-        ctx.fillStyle = 'grey';
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-        for(let Ball of Balls){
-            Ball.draw();
-        }
-        window.cancelAnimationFrame(foo);
-    });
 });
