@@ -4,7 +4,7 @@ export const config = {
     canvasHeight : 480,
     baseLength : 10,
     baseSpeed : 20,
-    headColor : "#d63031",
+    headColor : "#2d3436",
     bodyColorOdd : "white",
     bodyColorEven : "#2d3436",
     nodeRadius : 10,

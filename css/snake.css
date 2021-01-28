@@ -1,18 +1,68 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../resource/JetBrainsMono-Bold.ttf");
+
+}
 body{
-    background-color: #81ecec;
+    background: url("../resource/bg.png");
+
 }
 
 main{
-    width: 50%;
+    width: 970px;
+    height: 600px;
+    margin: 30px auto;
+}
+
+.div1{
+    width: 320px;
     height: 100%;
     background-color: ghostwhite;
     border: 20px solid #55efc4;
-    margin: auto;
+    float: left;
 }
 
+.div2{
+    width: 550px;
+    height: 100%;
+    background-color: ghostwhite;
+    border: 20px solid #55efc4;
+    float: right;
+}
+
+.score{
+    color: coral;
+    font-family: "JetBrains Mono", serif;
+    font-size: 18px;
+}
 #gameWindow{
     width: 480px;
     height: 480px;
     background-color: #b2bec3;
     margin: auto;
+}
+
+.sideBar{
+    height: 50px;
+    border-bottom: 5px solid grey;
+}
+
+button {
+    height: 40px;
+    width: 90px;
+    margin-top: 5px;
+    margin-left: 230px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    padding: 16px 32px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    border: 2px solid #74b9ff;
+    border-radius:5px;
+}
+
+button:hover {
+    background-color: #74b9ff;
+    color: white;
 }

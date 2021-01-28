@@ -46,6 +46,16 @@ export default class Control{
         this.running = false;
         window.cancelAnimationFrame(this.event);
     }
+    restart(){
+        this.pause();
+        this.snake = new Snake();
+        this.food = new Food();
+        this.food.generate(this.snake.getHead());
+        let ctx = this.canvas.getContext("2d");
+        ctx.fillStyle = config["canvasColor"];
+        ctx.fillRect(0, 0, config["canvasWidth"], config["canvasHeight"]);
+        this.snake.draw();
+    }
     /**
      * 处理键盘按键
      * @param {number} keyCode

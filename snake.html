@@ -4,19 +4,38 @@
     <meta charset="UTF-8">
     <title>贪吃蛇</title>
     <link href="css/snake.css" rel="stylesheet">
-    <link href="favicon.png" rel="icon">
+    <link href="/resource/favicon.png" rel="icon">
     <script src="scripts/jquery-3.5.1.js"></script>
 </head>
 <body>
 <main>
-    <h1 style="text-align: center;">贪吃蛇</h1>
+<div class="div1">
+    <h1 style="text-align: center;">Gluttonous Snake</h1>
     <hr>
-    <div id="gameWindow"></div>
+    <p id="scoreBoard" class="score">&nbsp score: 0</p>
+    <p id="historyScore" class="score">&nbsp Highest score: 0</p>
+    <hr>
+    <div id="mode1" class="sideBar"><h2 style="text-align: center">Easy Mode</h2></div>
+    <div id="mode2" class="sideBar"><h2 style="text-align: center">Medium Mode</h2></div>
+    <div id="mode3" class="sideBar"><h2 style="text-align: center">Hard Mode</h2></div>
+    <div>
+        <img src="./resource/favicon.png" alt="" style="height: 120px; margin-left: 100px; margin-top: 10px">
+    </div>
+    <hr>
     <footer>
-        <p style="text-align: center;"> <a href="https://github.com/DinoMax00/js-snake">@ DinoMax </a></p>
+        <p style="text-align: center;"> <a href="https://github.com/DinoMax00/js-snake">@DinoMax </a></p>
     </footer>
+</div>
+<div class="div2">
+    <div>
+    <div id="gameWindow" style="margin:30px auto;"></div>
+    </div>
+    <hr>
+    <div>
+        <button id="reStart">Restart</button>
+    </div>
+</div>
 </main>
 <script type="module" src="scripts/top.js"></script>
 </body>
-
 </html>

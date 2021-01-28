@@ -4,7 +4,7 @@ import {Node} from "./lib.js";
 
 export default class Snake{
     constructor() {
-        this.direction = "up";
+        this.direction = "right";
         this.length = config["baseLength"];
         this.speed = config["baseSpeed"];
         this.body = [];
