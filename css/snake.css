@@ -1,18 +1,18 @@
 body{
-    background-color: aqua;
+    background-color: #81ecec;
 }
 
 main{
     width: 50%;
     height: 100%;
     background-color: ghostwhite;
-    border: 20px solid bisque;
+    border: 20px solid #55efc4;
     margin: auto;
 }
 
 #gameWindow{
     width: 480px;
     height: 480px;
-    background-color: grey;
+    background-color: #b2bec3;
     margin: auto;
 }

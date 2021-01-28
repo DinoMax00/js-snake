@@ -71,4 +71,28 @@ export default class Snake{
             }
         }
     }
+    /**
+     * 检查蛇头有没有吃到食物
+     * @param {number} foodX
+     * @param {number} foodY
+     * @returns {boolean}
+     */
+    checkFood(foodX, foodY){
+        if(this.body[0].x === foodX && this.body[0].y === foodY){
+            this.length++;
+            let x = this.body[this.length-2].x -2 * config["nodeRadius"];
+            let y = this.body[this.length-2].y;
+            let color = ((this.length-1)%2) ? config["bodyColorOdd"] : config["bodyColorEven"];
+            this.body.push(new Node(x, y, color));
+            return true;
+        }
+        return false;
+    }
+    /**
+     * 获取蛇头坐标
+     * @returns {*[]}
+     */
+    getHead(){
+        return [this.body[0].x, this.body[0].y];
+    }
 }

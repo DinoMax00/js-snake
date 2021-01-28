@@ -16,6 +16,8 @@ export class Node{
         this.ctx.fill();
     }
     clear(){
+        // this.ctx.fillStyle = "rgba(178, 190, 195, 0.3)";
+        // this.ctx.fillRect(0, 0, config["canvasWidth"], config["canvasHeight"]);
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
         this.ctx.closePath();

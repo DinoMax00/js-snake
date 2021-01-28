@@ -1,11 +1,12 @@
 export const config = {
-    canvasColor : "grey",
+    canvasColor : "#b2bec3",
     canvasWidth : 480,
     canvasHeight : 480,
     baseLength : 10,
     baseSpeed : 20,
-    headColor : "red",
+    headColor : "#d63031",
     bodyColorOdd : "white",
-    bodyColorEven : "black",
+    bodyColorEven : "#2d3436",
     nodeRadius : 10,
+    foodColor : "#6c5ce7",
 };
