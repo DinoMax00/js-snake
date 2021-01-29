@@ -1,5 +1,5 @@
 import {config} from "./config.js";
-import {Node} from "./lib.js";
+import Node from "./lib.js";
 
 
 export default class Snake{
@@ -52,7 +52,7 @@ export default class Snake{
                 this.body[0].y += config["canvasHeight"];
                 this.body[0].y %= config["canvasHeight"];
                 break;
-            default : alert("direction error!");
+            default : swal("direction error!");
         }
     }
     /**
@@ -72,21 +72,26 @@ export default class Snake{
         }
     }
     /**
-     * 检查蛇头有没有吃到食物
+     * 检查蛇头有没有撞到身体或吃到食物
      * @param {number} foodX
      * @param {number} foodY
-     * @returns {boolean}
+     * @returns {number} -1:头撞到身体 1:吃到食物 0:没有吃到食物
      */
-    checkFood(foodX, foodY){
+    check(foodX, foodY){
+        for(let i=1; i<this.length; i++){
+            if(this.body[i].x===this.body[0].x && this.body[i].y===this.body[0].y){
+                return -1;
+            }
+        }
         if(this.body[0].x === foodX && this.body[0].y === foodY){
             this.length++;
             let x = this.body[this.length-2].x -2 * config["nodeRadius"];
             let y = this.body[this.length-2].y;
             let color = ((this.length-1)%2) ? config["bodyColorOdd"] : config["bodyColorEven"];
             this.body.push(new Node(x, y, color));
-            return true;
+            return 1;
         }
-        return false;
+        return 0;
     }
     /**
      * 获取蛇头坐标

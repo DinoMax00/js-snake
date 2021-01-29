@@ -38,11 +38,17 @@ main{
 #gameWindow{
     width: 480px;
     height: 480px;
-    background-color: #b2bec3;
+    background-color: #81ecec;
     margin: auto;
 }
 
 .sideBar{
+    height: 50px;
+    border-bottom: 5px solid grey;
+}
+
+.sideBar:hover{
+    background-color: #b2bec3;
     height: 50px;
     border-bottom: 5px solid grey;
 }
@@ -52,10 +58,7 @@ button {
     width: 90px;
     margin-top: 5px;
     margin-left: 230px;
-    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    padding: 16px 32px;
-    text-align: center;
     background-color: white;
     color: black;
     border: 2px solid #74b9ff;
@@ -66,3 +69,6 @@ button:hover {
     background-color: #74b9ff;
     color: white;
 }
+
+
+

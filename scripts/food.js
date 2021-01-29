@@ -1,5 +1,5 @@
 import {config} from "./config.js";
-import {Node} from "./lib.js";
+import Node from "./lib.js";
 
 export default class Food extends Node{
     constructor() {
